@@ -3,6 +3,7 @@ package com.mutated.sentryGun.controller;
 import com.pi4j.io.gpio.*;
 import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
+import org.springframework.context.event.EventListener;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,6 +30,7 @@ public class PirController {
 
         pir.addListener(new GpioPinListenerDigital() {
             @Override
+            @EventListener
             public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
 
                 if(event.getState().isHigh() && !trigger.getIsFiring()){
