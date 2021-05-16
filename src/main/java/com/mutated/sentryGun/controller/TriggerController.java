@@ -10,6 +10,7 @@ public class TriggerController {
     private static GpioPinDigitalOutput relayPin1;
     private static GpioPinDigitalOutput relayPin2;
     private boolean isFiring = false;
+    public boolean getIsFiring(){ return isFiring;}
 
     @RequestMapping("/")
     public String bootMessage(){
@@ -42,7 +43,7 @@ public class TriggerController {
             return "fireTrigger() called";
     }
 
-    private String fire() throws InterruptedException {
+    protected String fire() throws InterruptedException {
 
         primerTrigger();
         Thread.sleep(2000);
@@ -53,7 +54,7 @@ public class TriggerController {
 
     }
 
-    private String ceaseFire() throws InterruptedException {
+    protected String ceaseFire() throws InterruptedException {
 
         fireTrigger();
         Thread.sleep(1000);
