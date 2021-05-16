@@ -3,6 +3,7 @@ package com.mutated.sentryGun.controller;
 import com.pi4j.io.gpio.*;
 import com.pi4j.io.gpio.event.GpioPinDigitalStateChangeEvent;
 import com.pi4j.io.gpio.event.GpioPinListenerDigital;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -23,7 +24,8 @@ public class PirController {
 
     }
 
-    public int inputListener(){
+    @RequestMapping("/SentryMode")
+    public String inputListener(){
 
         pir.addListener(new GpioPinListenerDigital() {
             @Override
@@ -46,7 +48,7 @@ public class PirController {
 
             }
         });
-        return 1;
+        return "Motion detected!";
     }
 
 
