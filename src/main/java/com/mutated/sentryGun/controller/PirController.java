@@ -18,7 +18,7 @@ public class PirController {
         if(pir == null)
         {
             GpioController gpio = GpioFactory.getInstance();
-            pir = gpio.provisionDigitalInputPin(RaspiPin.GPIO_02 ,"PIR pin", PinPullResistance.PULL_UP);
+            pir = gpio.provisionDigitalInputPin(RaspiPin.GPIO_02 ,"PIR pin", PinPullResistance.PULL_DOWN);
         }
 
         return "PIR input pin allocated";
