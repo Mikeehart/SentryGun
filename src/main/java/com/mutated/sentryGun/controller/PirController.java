@@ -28,9 +28,10 @@ public class PirController {
     @RequestMapping("/SentryMode")
     public String inputListener(){
 
+        pirInput();
+
         pir.addListener(new GpioPinListenerDigital() {
             @Override
-            @EventListener()
             public void handleGpioPinDigitalStateChangeEvent(GpioPinDigitalStateChangeEvent event) {
 
                 if(event.getState().isHigh() && !trigger.getIsFiring()){
