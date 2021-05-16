@@ -26,7 +26,7 @@ public class PirController {
     }
 
     @RequestMapping("/SentryMode")
-    @EventListener
+    @EventListener()
     public String inputListener(){
 
         pir.addListener(new GpioPinListenerDigital() {
