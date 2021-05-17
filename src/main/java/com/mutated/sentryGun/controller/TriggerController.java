@@ -23,6 +23,7 @@ public class TriggerController {
 
             GpioController gpio = GpioFactory.getInstance();
             relayPin1 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04, "primer relay", PinState.LOW);
+            gpio.setShutdownOptions(true,PinState.LOW,relayPin1);
         }
 
         relayPin1.toggle();
@@ -36,6 +37,7 @@ public class TriggerController {
 
             GpioController gpio = GpioFactory.getInstance();
             relayPin2 = gpio.provisionDigitalOutputPin(RaspiPin.GPIO_01, "fire relay", PinState.LOW);
+            gpio.setShutdownOptions(true,PinState.LOW,relayPin2);
         }
 
         relayPin2.toggle();
