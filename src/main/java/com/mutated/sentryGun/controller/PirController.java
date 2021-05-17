@@ -36,13 +36,13 @@ public class PirController {
                         e.printStackTrace();
                     }
                 }
-                /*else if(event.getState().isLow() && trigger.getIsFiring()) {
+                else if(event.getState().isLow() && trigger.getIsFiring()) {
                     try {
-                        //trigger.ceaseFire();
+                        trigger.ceaseFire();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                }*/
+                }
 
             }
         });
