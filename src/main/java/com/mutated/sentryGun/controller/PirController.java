@@ -32,19 +32,17 @@ public class PirController {
                 if(event.getState().isHigh() && !trigger.getIsFiring()){
                     try {
                         trigger.fire();
-                        Thread.sleep(3000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
                 }
-                else if(event.getState().isLow() && trigger.getIsFiring()) {
+                /*else if(event.getState().isLow() && trigger.getIsFiring()) {
                     try {
-                        trigger.ceaseFire();
-                        Thread.sleep(3000);
+                        //trigger.ceaseFire();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                }
+                }*/
 
             }
         });
